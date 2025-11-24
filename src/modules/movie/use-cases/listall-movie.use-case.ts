@@ -1,19 +1,19 @@
 /* eslint-disable prettier/prettier */
 import { Injectable, Logger } from '@nestjs/common';
-import { ListScenarioRepository } from '../repository/listall-scenario.repository';
+import { ListMovieRepository } from '../repository/listall-movie.repository';
 
 @Injectable()
-export class ListScenarioUseCase {
+export class ListMovieUseCase {
     constructor(
-        private readonly listScenarioRepository: ListScenarioRepository,
+        private readonly listMovieRepository: ListMovieRepository,
         private readonly logger: Logger,
     ) {}
 
     async list(){
         try {
-            const scenario = this.listScenarioRepository.list();
-            this.logger.log("Scenario listed successfully");
-            return scenario;
+            const movie = this.listMovieRepository.list();
+            this.logger.log("Movie listed successfully");
+            return movie;
         } catch (error) {
             this.logger.error(error);
             throw error;
